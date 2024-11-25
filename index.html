@@ -1,0 +1,269 @@
+<html><head><base href="https://cdn.jsdelivr.net/">">
+<title>CSC Grade Calculator</title>
+<style>
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fff9e6;
+    margin: 0;
+    padding: 10px;
+    min-height: 100vh;
+    color: #5c4813;
+}
+
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(218, 165, 32, 0.2);
+}
+
+h1 {
+    text-align: center;
+    color: #daa520;
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.logo-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.logo-container img {
+    max-width: 150px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(218, 165, 32, 0.2);
+}
+
+.grade-input {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 5px;
+    color: #b8860b;
+    font-size: 14px;
+}
+
+input {
+    padding: 12px;
+    border: 2px solid #ffd700;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+input:focus {
+    border-color: #daa520;
+    outline: none;
+}
+
+/* Make number input arrows larger for mobile */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    height: 40px;
+    opacity: 1;
+}
+
+.calculate-btn {
+    background-color: #ffd700;
+    color: #5c4813;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin: 0 auto;
+    font-weight: bold;
+    width: 100%;
+    max-width: 300px;
+}
+
+.calculate-btn:hover {
+    background-color: #daa520;
+    color: white;
+}
+
+.calculate-btn:active {
+    transform: scale(0.98);
+}
+
+.result {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 20px;
+    color: #5c4813;
+    padding: 15px;
+    border-radius: 5px;
+    display: none;
+}
+
+.passing {
+    background-color: #fff3cd;
+    color: #856404;
+    border: 2px solid #ffd700;
+}
+
+.failing {
+    background-color: #fff3cd;
+    color: #856404;
+    border: 2px solid #daa520;
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 5px;
+    }
+    
+    .container {
+        padding: 10px;
+    }
+    
+    h1 {
+        font-size: 20px;
+    }
+    
+    input {
+        font-size: 14px;
+        padding: 10px;
+    }
+    
+    .result {
+        font-size: 16px;
+    }
+}
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>CSC Grade Calculator</h1>
+    <div class="logo-container">
+        <img alt="CSC Grade Calculator Logo, modern academic design in gold and white" src="logo-placeholder.png" width="150" height="150">
+    </div>
+    <div class="grade-input">
+        <div class="input-group">
+            <label for="arab">Arab (over 60)</label>
+            <input type="number" id="arab" max="60" min="0">
+        </div>
+        <div class="input-group">
+            <label for="french">French (over 40)</label>
+            <input type="number" id="french" max="40" min="0">
+        </div>
+        <div class="input-group">
+            <label for="english">English (over 20)</label>
+            <input type="number" id="english" max="20" min="0">
+        </div>
+        <div class="input-group">
+            <label for="history">History (over 20)</label>
+            <input type="number" id="history" max="20" min="0">
+        </div>
+        <div class="input-group">
+            <label for="geography">Geography (over 20)</label>
+            <input type="number" id="geography" max="20" min="0">
+        </div>
+        <div class="input-group">
+            <label for="civilism">Civilism (over 20)</label>
+            <input type="number" id="civilism" max="20" min="0">
+        </div>
+        <div class="input-group">
+            <label for="math">Math (over 60)</label>
+            <input type="number" id="math" max="60" min="0">
+        </div>
+        <div class="input-group">
+            <label for="physics">Physics (over 20)</label>
+            <input type="number" id="physics" max="20" min="0">
+        </div>
+        <div class="input-group">
+            <label for="chemistry">Chemistry (over 20)</label>
+            <input type="number" id="chemistry" max="20" min="0">
+        </div>
+        <div class="input-group">
+            <label for="science">Science (over 20)</label>
+            <input type="number" id="science" max="20" min="0">
+        </div>
+        <div class="input-group">
+            <label for="informatics">Informatics (over 20)</label>
+            <input type="number" id="informatics" max="20" min="0">
+        </div>
+        <div class="input-group">
+            <label for="pe">PE (over 20)</label>
+            <input type="number" id="pe" max="20" min="0">
+        </div>
+        <div class="input-group">
+            <label for="economy">Economy (over 20)</label>
+            <input type="number" id="economy" max="20" min="0">
+        </div>
+        <div class="input-group">
+            <label for="sociology">Sociology (over 20)</label>
+            <input type="number" id="sociology" max="20" min="0">
+        </div>
+    </div>
+    <button class="calculate-btn" onclick="calculateGrade()">Calculate Grade</button>
+    <div class="result" id="result"></div>
+</div>
+
+<script>
+function calculateGrade() {
+    const subjects = {
+        arab: { max: 60, value: parseFloat(document.getElementById('arab').value) || 0 },
+        french: { max: 40, value: parseFloat(document.getElementById('french').value) || 0 },
+        english: { max: 20, value: parseFloat(document.getElementById('english').value) || 0 },
+        history: { max: 20, value: parseFloat(document.getElementById('history').value) || 0 },
+        geography: { max: 20, value: parseFloat(document.getElementById('geography').value) || 0 },
+        civilism: { max: 20, value: parseFloat(document.getElementById('civilism').value) || 0 },
+        math: { max: 60, value: parseFloat(document.getElementById('math').value) || 0 },
+        physics: { max: 20, value: parseFloat(document.getElementById('physics').value) || 0 },
+        chemistry: { max: 20, value: parseFloat(document.getElementById('chemistry').value) || 0 },
+        science: { max: 20, value: parseFloat(document.getElementById('science').value) || 0 },
+        informatics: { max: 20, value: parseFloat(document.getElementById('informatics').value) || 0 },
+        pe: { max: 20, value: parseFloat(document.getElementById('pe').value) || 0 },
+        economy: { max: 20, value: parseFloat(document.getElementById('economy').value) || 0 },
+        sociology: { max: 20, value: parseFloat(document.getElementById('sociology').value) || 0 }
+    };
+
+    let totalPoints = 0;
+    let totalMaxPoints = 0;
+    let isValid = true;
+
+    for (const subject in subjects) {
+        if (subjects[subject].value > subjects[subject].max) {
+            alert(`Invalid grade for ${subject}. Maximum value is ${subjects[subject].max}`);
+            isValid = false;
+            break;
+        }
+        totalPoints += subjects[subject].value;
+        totalMaxPoints += subjects[subject].max;
+    }
+
+    if (isValid) {
+        const gradeOver20 = (totalPoints / totalMaxPoints) * 20;
+        const resultDiv = document.getElementById('result');
+        resultDiv.style.display = 'block';
+        
+        if (gradeOver20 >= 10) {
+            resultDiv.className = 'result passing';
+            resultDiv.innerHTML = `Congratulations! You passed with ${gradeOver20.toFixed(2)}/20<br>Total Points: ${totalPoints}/${totalMaxPoints}`;
+        } else {
+            resultDiv.className = 'result failing';
+            resultDiv.innerHTML = `You need improvement. Your grade is ${gradeOver20.toFixed(2)}/20<br>Total Points: ${totalPoints}/${totalMaxPoints}`;
+        }
+    }
+}
+</script>
+</body>
+</html>
